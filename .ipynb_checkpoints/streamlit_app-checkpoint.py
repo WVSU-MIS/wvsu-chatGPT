@@ -49,7 +49,7 @@ def app():
 
     st.write("This bot can answer questions about the history, mission, purpose, objectives, innovations, milestones awards and other information specifically about Silak Media.")
     
-    st.write("The potential applications of this tecnology is fully-automated AI bots to respond to Q and A on such topics as admission requirements, academic policies or any knowledge domain.")
+    st.write("The potential applications of this technology is fully-automated AI bots to respond to Q and A on such topics as admission requirements, academic policies or any knowledge domain.")
     
     # Create a multiline text field
     user_input = st.text_area('Input your question here:', height=10)
