@@ -31,7 +31,7 @@ def get_reply(input_string):
           {"role": "assistant", "content": "Promote a student information media that is highly informative, socially involved, dynamic, truthful, impartial, and reliable. Develop the skills of the members of its editorial staff through training, seminars, workshops, conferences, and symposia that are in line with campus journalism, creative writing, and academic writing. Establish a strong sense of loyalty to the ideals upheld by WVSUas the bearer of goodwill in terms of student publication."},
           {"role": "user", "content": "What are the objectives?"},
           {"role": "assistant", "content": "- Publish students’ opinions on the issues that concern them. Conduct training, seminars, workshops, conferences, and symposia in order to expand its scope of service and community involvement. Promote the passion for writing among members of its editorial staff and students of the COE and of WVSU through responsible writing in the fields of journalism, creative writing, and academic writing. Promote the passion for Broadcast Journalism with its SILAK TV Division. Ensure quick and reliable information dissemination with its SILAK Online division."},
-          {"role": "user", "content": "Who is Hazel Villa?"}
+          {"role": "user", "content": input_string}
         ]
     )
 
