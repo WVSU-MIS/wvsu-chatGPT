@@ -51,7 +51,7 @@ def app():
     user_input = st.text_area('Input your question here:', height=10)
 
     # Display the text when the user submits the form
-    if st.button('Submit')::
+    if st.button('Submit'):
         output = get_reply(user_input)
         st.write(output)
 
