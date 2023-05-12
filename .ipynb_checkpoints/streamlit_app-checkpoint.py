@@ -46,6 +46,10 @@ def app():
     
     st.title("Silak Chatbot is chatGPT-powered AI")
     st.write("This experimental project demonstrates how AI can be imbued with specific knowledge on a set of topics. Like chatGPT, the bot can engage the user in a conversation. But prompt engineering has provided this app with specific information beyond the training of chatGPT.  This particular program is designed to be a helpful assistant to a potential applicant to be a writer or staff member of Silak Media.")
+
+    st.write("This bot can answer questions about the history, mission, purpose, objectives, innovations, milestones awards and other information specifically about Silak Media.")
+    
+    st.write("The potential applications of this tecnology is fully-automated AI bots to respond to Q and A on such topics as admission requirements, academic policies or any knowledge domain.")
     
     # Create a multiline text field
     user_input = st.text_area('Input your question here:', height=10)
