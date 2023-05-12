@@ -36,7 +36,7 @@ def get_reply(input_string):
     )
 
     # Print the generated response
-    answer = esponse['choices'][0]['message']['content']
+    answer = response['choices'][0]['message']['content']
     return answer
 
 # Define the Streamlit app
