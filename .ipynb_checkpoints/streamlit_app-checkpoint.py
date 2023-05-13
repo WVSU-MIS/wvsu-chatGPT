@@ -51,13 +51,20 @@ def app():
     
     st.write("The potential applications of this technology is fully-automated AI bots to respond to Q and A on such topics as admission requirements, academic policies or any knowledge domain.")
     
-    # Create a multiline text field
-    user_input = st.text_area('Input your question here:', height=10)
+    # Create two columns, with the first column wider than the second
+    left_column, right_column = st.beta_columns([2, 1])
 
-    # Display the text when the user submits the form
-    if st.button('Submit'):
-        output = get_reply(user_input)
-        st.write(output)
+    # Add content to the left column
+    with left_column:
+        # Create a multiline text field
+        user_input = st.text_area('Input your question here:', height=10)
+
+        # Display the text when the user submits the form
+        if st.button('Submit'):
+            output = get_reply(user_input)
+            st.write(output)
+            with right_column:
+                st.write('Replace with chat history')
 
 # Run the app
 if __name__ == "__main__":
