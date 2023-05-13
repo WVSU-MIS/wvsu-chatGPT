@@ -58,24 +58,17 @@ def app():
     st.write("This bot can answer questions about the history, mission, purpose, objectives, innovations, milestones awards and other information specifically about Silak Media.")
     
     st.write("The potential applications of this technology is fully-automated AI bots to respond to Q and A on such topics as admission requirements, academic policies or any knowledge domain.")
-    
-    # Create two columns, with the first column wider than the second
-    left_column, right_column = st.columns([2, 1])
 
-    # Add content to the left column
-    with left_column:
-        # Create a multiline text field
-        user_input = st.text_area('Input your question here:', height=10)
+    # Create a multiline text field
+    user_input = st.text_area('Input your question here:', height=10)
 
-        # Display the text when the user submits the form
-        if st.button('Submit'):
-            history = append_history(history, ('user: ' + user_input))
-            output = get_reply(user_input)
-            history = append_history(history, ('chatBot: ' + output))
-            st.write(output)
-            with right_column:
-                for item in range(len(history)):
-                    st.write(history[item])
+    # Display the text when the user submits the form
+    if st.button('Submit'):
+        history = append_history(history, ('user: ' + user_input))
+        output = get_reply(user_input)
+        history = append_history(history, ('chatBot: ' + output))
+        for item in range(len(history)):
+            st.write(history[item])
 
 # Run the app
 if __name__ == "__main__":
