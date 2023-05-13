@@ -7,7 +7,7 @@ openai.api_key = st.secrets["API_key"]
 import hashlib
 
 global history
-
+history = []
 def append_history(history, item):
     history.append(item)
     return history
