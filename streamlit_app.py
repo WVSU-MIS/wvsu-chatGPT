@@ -67,7 +67,7 @@ def app():
             history.append('chatBot: ' + output)
             st.write(output)
             with right_column:
-                for item in range(len(history):
+                for item in range(len(history)):
                     st.write(history[item])
 
 # Run the app
