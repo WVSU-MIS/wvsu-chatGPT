@@ -4,7 +4,7 @@ import streamlit as st
 import altair as alt
 import openai
 openai.api_key = st.secrets["API_key"]
-from streamlit.hashing import _CodeHasher
+from streamlit.hashing import _get_code_with_cache
 import hashlib
 
 # Define a custom class to hold session state
