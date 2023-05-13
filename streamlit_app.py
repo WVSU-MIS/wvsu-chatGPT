@@ -64,7 +64,7 @@ def app():
         if st.button('Submit'):
             history.append('user: ' + user_input)
             output = get_reply(user_input)
-            history.append('chatBot: ' + output
+            history.append('chatBot: ' + output)
             st.write(output)
             with right_column:
                 for item in range(len(history):
