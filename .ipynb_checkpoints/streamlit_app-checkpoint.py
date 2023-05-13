@@ -8,6 +8,10 @@ import hashlib
 
 history=[]
 
+def append_history(history, item)
+    history.append(item)
+    return history
+
 def get_reply(input_string): 
     response = openai.ChatCompletion.create(
       model="gpt-3.5-turbo",
@@ -64,9 +68,9 @@ def app():
 
         # Display the text when the user submits the form
         if st.button('Submit'):
-            history.append('user: ' + user_input)
+            history = append_history(history, ('user: ' + user_input))
             output = get_reply(user_input)
-            history.append('chatBot: ' + output)
+            history = append_history(history, ('chatBot: ' + output))
             st.write(output)
             with right_column:
                 for item in range(len(history)):
