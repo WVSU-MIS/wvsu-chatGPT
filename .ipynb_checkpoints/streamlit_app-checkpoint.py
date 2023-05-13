@@ -53,7 +53,8 @@ def app():
     
     # Create two columns, with the first column wider than the second
     left_column, right_column = st.beta_columns([2, 1])
-
+    history = []
+    
     # Add content to the left column
     with left_column:
         # Create a multiline text field
@@ -61,10 +62,13 @@ def app():
 
         # Display the text when the user submits the form
         if st.button('Submit'):
+            history.append('user: ' + user_input)
             output = get_reply(user_input)
+            history.append('chatBot: ' + output
             st.write(output)
             with right_column:
-                st.write('Replace with chat history')
+                for item in range(len(history):
+                    st.write(history[item])
 
 # Run the app
 if __name__ == "__main__":
