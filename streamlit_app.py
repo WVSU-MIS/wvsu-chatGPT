@@ -4,6 +4,7 @@ import streamlit as st
 import altair as alt
 import openai
 openai.api_key = st.secrets["API_key"]
+history = []
 
 def get_reply(input_string): 
     response = openai.ChatCompletion.create(
@@ -53,7 +54,7 @@ def app():
     
     # Create two columns, with the first column wider than the second
     left_column, right_column = st.beta_columns([2, 1])
-    history = []
+
     
     # Add content to the left column
     with left_column:
