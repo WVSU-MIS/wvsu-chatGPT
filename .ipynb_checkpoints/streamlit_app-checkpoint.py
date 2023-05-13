@@ -60,7 +60,7 @@ def app():
     st.write("The potential applications of this technology is fully-automated AI bots to respond to Q and A on such topics as admission requirements, academic policies or any knowledge domain.")
     
     # Create two columns, with the first column wider than the second
-    left_column, right_column = st.beta_columns([2, 1])
+    left_column, right_column = st.columns([2, 1])
 
     # Add content to the left column
     with left_column:
