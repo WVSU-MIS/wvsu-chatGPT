@@ -8,7 +8,7 @@ import hashlib
 
 history=[]
 
-def append_history(history, item)
+def append_history(history, item):
     history.append(item)
     return history
 
