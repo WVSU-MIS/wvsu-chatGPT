@@ -7,7 +7,7 @@ openai.api_key = st.secrets["API_key"]
 import hashlib
 
 global history
-history = []
+
 def append_history(history, item):
     history.append(item)
     return history
@@ -48,6 +48,7 @@ def get_reply(input_string):
 
 # Define the Streamlit app
 def app():
+    history = []
     st.header("Welcome to WVSU Silak Publication Chatbot")
     st.subheader("Louie F. Cervantes M.Eng. \n(c) 2023 WVSU College of ICT")
     
