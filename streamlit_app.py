@@ -56,7 +56,7 @@ def _get_session(session_id):
     return session_info.session
 
 # Create a new instance of SessionState
-session_state = SessionState(history[])
+session_state = SessionState(history=[])
 
 
 
