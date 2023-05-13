@@ -4,8 +4,61 @@ import streamlit as st
 import altair as alt
 import openai
 openai.api_key = st.secrets["API_key"]
-global history
-history = []
+from streamlit.hashing import _CodeHasher
+import hashlib
+
+# Define a custom class to hold session state
+class SessionState:
+    def __init__(self, **kwargs):
+        self.hash_funcs = {"md5": hashlib.md5}
+        for key, val in kwargs.items():
+            setattr(self, key, val)
+
+    def __getitem__(self, key):
+        return getattr(self, key)
+
+    def __setitem__(self, key, value):
+        setattr(self, key, value)
+
+    def __contains__(self, key):
+        return hasattr(self, key)
+
+    def clear(self):
+        for key in self.__dict__.keys():
+            delattr(self, key)
+
+    def sync(self):
+        session_id = st.report_thread.get_report_ctx().session_id
+        session = _get_session(session_id)
+        if session is None:
+            return
+        session_state = session.get("session_state")
+        if session_state is None:
+            return
+        if self in session_state:
+            return
+        session_state[self] = {}
+        for key in self.__dict__.keys():
+            if key not in ["hash_funcs"]:
+                val = getattr(self, key)
+                session_state[self][key] = self._hash(val)
+
+    def _hash(self, val):
+        if isinstance(val, bytes):
+            return val
+        hasher = self.hash_funcs.get("md5")
+        return hasher(val.encode("utf-8")).hexdigest()
+
+def _get_session(session_id):
+    session_info = st._get_session_info(session_id)
+    if session_info is None:
+        return None
+    return session_info.session
+
+# Create a new instance of SessionState
+session_state = SessionState(history[])
+
+
 
 def get_reply(input_string): 
     response = openai.ChatCompletion.create(
@@ -64,13 +117,15 @@ def app():
 
         # Display the text when the user submits the form
         if st.button('Submit'):
-            history.append('user: ' + user_input)
+            session_state.history.append('user: ' + user_input)
             output = get_reply(user_input)
             history.append('chatBot: ' + output)
+            session_state.history.append('chatBot: ' + output)
+            session_state.sync()
             st.write(output)
             with right_column:
                 for item in range(len(history)):
-                    st.write(history[item])
+                    st.write(session_state.history)
 
 # Run the app
 if __name__ == "__main__":
