@@ -4,7 +4,7 @@ import streamlit as st
 import altair as alt
 import openai
 openai.api_key = st.secrets["API_key"]
-history = []
+global history = []
 
 def get_reply(input_string): 
     response = openai.ChatCompletion.create(
